@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { SectionId } from "../hooks/useSectionObserver";
 
-// ✅ Header agora aceita a prop activeSection
+// Header agora aceita a prop activeSection
 type HeaderProps = {
   activeSection: SectionId;
 };
@@ -55,7 +55,7 @@ export function Header({ activeSection }: HeaderProps) {
             {/* IMAGEM */}
             <div className="flex h-28 w-28 items-center justify-center ">
               <img
-                src="/images/logo/logobranco.png"
+                src="/images/logo/logopreto.png"
                 alt="logo"
                 className="h-full w-full object-contain"
               />

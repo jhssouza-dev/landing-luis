@@ -9,7 +9,7 @@ export function useScrollReveal() {
       easing: "cubic-bezier(0.22, 0.61, 0.36, 1)",
       origin: "bottom",
       reset: false,
-      viewFactor: 0.12,
+      viewFactor: 0.01,
     });
 
     sr.reveal(".sr-section", {

@@ -15,7 +15,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
     >
       {/* TODAS AS IMAGENS DO PROJETO */}
       {project.images.map((src, index) => {
-
         const { ref, visible } = useFadeIn();
 
         return (
@@ -25,9 +24,22 @@ export function ProjectCard({ project }: ProjectCardProps) {
             className={`
               w-full h-[85vh] md:h-[120vh] overflow-hidden mb-10
               transition-all duration-[1200ms] ease-out
-              ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
+              ${
+                visible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }
             `}
           >
+            <div className="text-center px-6 md:px-1 mt-10">
+              <p className="text-base uppercase tracking-[0.2em] text-(--text-soft)">
+                {project.tag}
+              </p>
+
+              <h3 className="mt-2 text-xl md:text-6xl font-medium text-(--text) mb-10">
+                {project.title}
+              </h3>
+            </div>
             <img
               src={src}
               alt={`${project.title} - imagem ${index + 1}`}
@@ -38,19 +50,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
       })}
 
       {/* TEXTO ABAIXO */}
-      <div className="text-center px-6 md:px-1 mt-10">
-        <p className="text-base uppercase tracking-[0.2em] text-(--text-soft)">
-          {project.tag}
-        </p>
-
-        <h3 className="mt-2 text-xl md:text-6xl font-medium text-(--text)">
-          {project.title}
-        </h3>
-
-        <span className="mt-4 inline-flex items-center gap-1 text-sm hover:text-gray-400">
-          Ver no Behance →
-        </span>
-      </div>
     </a>
   );
 }

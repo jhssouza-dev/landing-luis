@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+/* Swiper CSS (vem do node_modules, TS não se mete aqui) */
+@import "swiper/css";
+@import "swiper/css/pagination";
+@import "swiper/css/effect-fade";
+
+/* Estilos base globais */
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply m-0 bg-[#050816] text-[#F9FAFB] antialiased;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      sans-serif;
+  }
+}
+
+/* Utility extra que fizemos */
+@layer utilities {
+  .page-container {
+    @apply mx-auto w-full max-w-6xl px-4;
+  }
+}

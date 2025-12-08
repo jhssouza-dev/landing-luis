@@ -2,11 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Pagination } from "swiper/modules";
 
 const slides = [
-  {
-    id: 1,
-    imageUrl: "/images/hero/hero1.webp",
-    alt: "Projeto 1",
-  },
+  
   {
     id: 2,
     imageUrl: "/images/hero/hero2.webp",

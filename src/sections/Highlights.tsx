@@ -14,12 +14,13 @@ export function Highlights() {
           </div>
         </div>
 
-        {/* Grid de projetos */}
+        {/* Lista de projetos */}
         <div className="flex flex-col gap-32">
           {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+            <div id={`project-${project.id}`} key={project.id}>
+              <ProjectCard project={project} />
+            </div>
           ))}
-          
         </div>
       </div>
     </section>

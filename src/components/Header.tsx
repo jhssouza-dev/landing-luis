@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import type { SectionId } from "../hooks/useSectionObserver";
+import { projects } from "../data/projects";
 
 // Header agora aceita a prop activeSection
 type HeaderProps = {
@@ -21,11 +22,26 @@ export function Header({ activeSection }: HeaderProps) {
   const headerVisible = isMobile || isHovered || menuOpen;
 
   const scrollToSection = (id: SectionId) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
-    setMenuOpen(false);
-  };
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  el.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  // FECHAR MENU
+  setMenuOpen(false);
+  setIsHovered(false);
+};
+
+const scrollToProject = (projectId: string) => {
+  const el = document.getElementById(`project-${projectId}`);
+  if (!el) return;
+
+  el.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  // FECHAR MENU imediatamente
+  setMenuOpen(false);
+  setIsHovered(false);
+};
 
   return (
     <>
@@ -52,8 +68,7 @@ export function Header({ activeSection }: HeaderProps) {
             onClick={() => scrollToSection("top")}
             className="flex items-center gap-2"
           >
-            {/* IMAGEM */}
-            <div className="flex h-28 w-28 items-center justify-center ">
+            <div className="flex h-28 w-28 items-center justify-center">
               <img
                 src="/images/logo/logopreto.png"
                 alt="logo"
@@ -69,22 +84,21 @@ export function Header({ activeSection }: HeaderProps) {
             aria-label="Abrir menu"
             className="relative flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 bg-black/70 text-slate-100 transition hover:border-slate-400"
           >
-            {/* ícone hamburguer animado */}
             <span
               className={
-                "absolute h-[1.5px] w-5 bg-slate-100 transition-transform duration-200 " +
+                "absolute h-[1.5px] w-5 bg-slate-100 transition-transform duration-400 " +
                 (menuOpen ? "translate-y-0 rotate-45" : "-translate-y-2")
               }
             />
             <span
               className={
-                "absolute h-[1.5px] w-5 bg-slate-100 transition-opacity duration-150 " +
+                "absolute h-[1.5px] w-5 bg-slate-100 transition-opacity duration-300 " +
                 (menuOpen ? "opacity-0" : "opacity-100")
               }
             />
             <span
               className={
-                "absolute h-[1.5px] w-5 bg-slate-100 transition-transform duration-200 " +
+                "absolute h-[1.5px] w-5 bg-slate-100 transition-transform duration-400 " +
                 (menuOpen ? "translate-y-0 -rotate-45" : "translate-y-2")
               }
             />
@@ -95,7 +109,7 @@ export function Header({ activeSection }: HeaderProps) {
       {/* OVERLAY FULLSCREEN DO MENU */}
       <div
         className={
-          "fixed inset-0 z-60 bg-[#050505]/95 backdrop-blur-xl transition-opacity duration-300 " +
+          "fixed inset-0 z-60 bg-[#050505]/95 backdrop-blur-xl transition-opacity duration-800 " +
           (menuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none")
@@ -108,8 +122,7 @@ export function Header({ activeSection }: HeaderProps) {
               onClick={() => scrollToSection("top")}
               className="flex items-center gap-3"
             >
-              {/* LOGO DENTRO DO CONTÊINER */}
-              <div className="flex h-28 w-28 items-center justify-center ">
+              <div className="flex h-28 w-28 items-center justify-center">
                 <img
                   src="/images/logo/logobranco.png"
                   alt="logo"
@@ -128,22 +141,40 @@ export function Header({ activeSection }: HeaderProps) {
           </div>
 
           {/* links do menu (tela cheia) */}
-          <nav className="flex flex-1 flex-col items-center justify-center gap-8 text-3xl  md:text-4xl">
-            <button
-              className={
-                "mb-4 text-left uppercase transition-colors " +
-                (activeSection === "projetos"
-                  ? "text-gray-400"
-                  : "text-slate-100 hover:text-gray-400")
-              }
-              onClick={() => scrollToSection("projetos")}
-            >
-              Projetos
-            </button>
+          <nav className="flex flex-1 flex-col items-center justify-center gap-6 text-3xl md:text-4xl">
+            {/* PROJETOS + SUBLISTA */}
+            <div className="flex flex-col items-center gap-3">
+              {/* Botão principal PROJETOS */}
+              <button
+                className={
+                  "text-left uppercase transition-colors " +
+                  (activeSection === "projetos"
+                    ? "text-gray-400"
+                    : "text-slate-100 hover:text-gray-400")
+                }
+                onClick={() => scrollToSection("projetos")}
+              >
+                Projetos
+              </button>
 
+              {/* SUBLISTA com título de cada PROJETO */}
+              <div className="flex flex-col gap-2 text-base md:text-lg text-slate-400">
+                {projects.map((project) => (
+                  <button
+                    key={project.id}
+                    onClick={() => scrollToProject(project.id)}
+                    className="uppercase tracking-[0.18em] hover:text-gray-200 transition-colors"
+                  >
+                    {project.title}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* SOBRE */}
             <button
               className={
-                "mb-4 text-left uppercase transition-colors " +
+                "text-left uppercase transition-colors " +
                 (activeSection === "sobre"
                   ? "text-gray-400"
                   : "text-slate-100 hover:text-gray-400")
@@ -153,9 +184,36 @@ export function Header({ activeSection }: HeaderProps) {
               Sobre
             </button>
 
+            {/* PROCESSO */}
             <button
               className={
-                "mb-4 text-left uppercase transition-colors " +
+                "text-left uppercase transition-colors " +
+                (activeSection === "processo"
+                  ? "text-gray-400"
+                  : "text-slate-100 hover:text-gray-400")
+              }
+              onClick={() => scrollToSection("processo")}
+            >
+              Processo
+            </button>
+
+            {/* DEPOIMENTOS */}
+            <button
+              className={
+                "text-left uppercase transition-colors " +
+                (activeSection === "depoimentos"
+                  ? "text-gray-400"
+                  : "text-slate-100 hover:text-gray-400")
+              }
+              onClick={() => scrollToSection("depoimentos")}
+            >
+              Depoimentos
+            </button>
+
+            {/* SERVIÇOS */}
+            <button
+              className={
+                "text-left uppercase transition-colors " +
                 (activeSection === "servicos"
                   ? "text-gray-400"
                   : "text-slate-100 hover:text-gray-400")
@@ -165,9 +223,10 @@ export function Header({ activeSection }: HeaderProps) {
               Serviços
             </button>
 
+            {/* CONTATO */}
             <button
               className={
-                "mb-4 text-left uppercase transition-colors " +
+                "text-left uppercase transition-colors " +
                 (activeSection === "contato"
                   ? "text-gray-400"
                   : "text-slate-100 hover:text-gray-400")

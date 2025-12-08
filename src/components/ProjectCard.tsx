@@ -50,8 +50,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
         );
       })}
-
-      {/* TEXTO ABAIXO */}
     </a>
   );
 }

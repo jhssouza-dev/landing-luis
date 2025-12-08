@@ -1,6 +1,15 @@
 import { useEffect, useState } from "react";
 
-const SECTION_IDS = ["top", "projetos", "sobre", "servicos", "contato"] as const;
+const SECTION_IDS = [
+  "top",
+  "projetos",
+  "sobre",
+  "processo",
+  "depoimentos",
+  "servicos",
+  "contato",
+] as const;
+
 export type SectionId = (typeof SECTION_IDS)[number];
 
 export function useSectionObserver() {
@@ -25,7 +34,7 @@ export function useSectionObserver() {
         }
       },
       {
-        threshold: 0.2, // 30% visível já conta
+        threshold: 0.3,
       }
     );
 

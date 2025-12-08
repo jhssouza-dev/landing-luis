@@ -3,7 +3,7 @@ import { ProjectCard } from "../components/ProjectCard";
 
 export function Highlights() {
   return (
-    <section id="projetos" className="sr-section border-t border-white/5 py-16">
+    <section id="projetos" className="border-t border-white/5 py-16">
       <div className="page-container">
         {/* Cabeçalho da seção */}
         <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">

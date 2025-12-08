@@ -1,45 +1,65 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Pagination } from "swiper/modules";
 
+const slides = [
+  {
+    id: 1,
+    imageUrl: "/images/hero/hero1.webp",
+    alt: "Projeto 1",
+  },
+  {
+    id: 2,
+    imageUrl: "/images/hero/hero2.webp",
+    alt: "Projeto 2",
+  },
+  {
+    id: 3,
+    imageUrl: "/images/hero/hero3.webp",
+    alt: "Projeto 3",
+  },
+];
+
 export function Hero() {
   return (
     <section
       id="top"
-      className="relative h-screen w-full sr-section overflow-hidden bg-(--bg)"
+      className="relative h-screen w-full overflow-hidden bg-black"
     >
-      {/* Slider de fundo */}
       <Swiper
-        modules={[Autoplay, EffectFade, Pagination]}
+        modules={[EffectFade, Pagination, Autoplay]}
         effect="fade"
-        autoplay={{ delay: 4000 }}
+        fadeEffect={{ crossFade: true }}
+        speed={1200} // tempo da transição (ms)
+        autoplay={{
+          delay: 5500, // tempo que cada slide fica na tela
+          disableOnInteraction: false,
+        }}
         pagination={{ clickable: true }}
-        className="h-full w-full z-0"
+        loop
+        className="h-full w-full"
       >
-        {[
-          "/images/hero/hero1.webp",
-          "/images/hero/hero2.webp",
-          "/images/hero/hero3.webp",
-        ].map((src, idx) => (
-          <SwiperSlide key={idx}>
+        {slides.map((slide) => (
+          <SwiperSlide key={slide.id}>
             <div className="relative h-full w-full">
               <img
-                src={src}
-                alt=""
-                className="h-full w-full object-cover translate-z-0!"
+                src={slide.imageUrl}
+                alt={slide.alt}
+                className="h-full w-full object-cover"
               />
-              {/* overlay da imagem */}
-              <div className="absolute inset-0  " />
+
+              {/* overlay escuro sutil, se quiser */}
+              <div className="pointer-events-none absolute inset-0 bg-black/30" />
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
 
-      {/* TEXTO POR CIMA */}
-      <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center">
+      {/* Logo / texto central, se quiser por cima */}
+       <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center">
         <img
-          src="/images/logo/logopreto.png"
+          src="/images/logo/logobranco.png"
           alt="logo"
-          className="w-80 object-contain md:w-200"
+          className="w-40 md:w-56 object-contain opacity-60 drop-shadow-[0_0_10px_rgba(0,0,0,0.6)]"
         />
       </div>
     </section>

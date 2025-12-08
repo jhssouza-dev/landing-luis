@@ -6,7 +6,7 @@ type ServiceCardProps = {
 
 export function ServiceCard({ service }: ServiceCardProps) {
   return (
-    <div className="group flex flex-col rounded-2xl border border-[var(--border)] bg-[var(--bg-soft)]/80 p-5 backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1 hover:border-[var(--accent)]/60 hover:shadow-xl">
+    <div className="group flex flex-col rounded-2xl border border-(--border) bg-(--bg-soft)/80 p-5 backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1 hover:border-[var(--accent)]/60 hover:shadow-xl">
       <div className="mb-4 flex items-center justify-between gap-2">
         <h3 className="text-base font-semibold md:text-lg">
           {service.title}
@@ -22,7 +22,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
         <ul className="mt-4 space-y-1.5 text-xs text-slate-400">
           {service.items.map((item) => (
             <li key={item} className="flex items-start gap-2">
-              <span className="mt-[3px] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />
+              <span className="mt-[3px] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-gray-400" />
               <span>{item}</span>
             </li>
           ))}

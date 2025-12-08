@@ -25,7 +25,7 @@ export function useSectionObserver() {
         }
       },
       {
-        threshold: 0.1, // 30% visível já conta
+        threshold: 0.2, // 30% visível já conta
       }
     );
 

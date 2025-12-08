@@ -33,7 +33,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             ref={ref}
             className={`
               w-full h-[85vh] md:h-[120vh] overflow-hidden mb-10
-              transition-all duration-[1200ms] ease-out
+              transition-all duration-1200 ease-out
               ${
                 visible
                   ? "opacity-100 translate-y-0"

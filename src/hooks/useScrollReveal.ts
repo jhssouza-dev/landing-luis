@@ -1,18 +1,23 @@
-import { useEffect } from 'react'
-import ScrollReveal from 'scrollreveal'
+import { useEffect } from "react";
+import ScrollReveal from "scrollreveal";
 
 export function useScrollReveal() {
   useEffect(() => {
-    const sr = ScrollReveal()
+    const sr = ScrollReveal({
+      distance: "40px",
+      duration: 900,
+      easing: "cubic-bezier(0.22, 0.61, 0.36, 1)",
+      origin: "bottom",
+      reset: false,
+      viewFactor: 0.12,
+    });
 
-    sr.reveal('.sr-section', {
-      distance: '40px',
-      origin: 'bottom',
-      duration: 800,
-      delay: 100,
-      easing: 'ease-out',
-      interval: 100,
-      cleanup: true,
-    })
-  }, [])
+    sr.reveal(".sr-section", {
+      interval: 120,
+    });
+
+    return () => {
+      sr.destroy();
+    };
+  }, []);
 }

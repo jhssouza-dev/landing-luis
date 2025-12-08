@@ -10,7 +10,7 @@ export function Services() {
       <div className="page-container">
         {/* Cabeçalho da seção */}
         <div className="mb-10 max-w-2xl">
-          <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
+          <p className="text-lg uppercase tracking-[0.3em] text-slate-400">
             Serviços
           </p>
           <h2 className="mt-2 text-2xl font-semibold md:text-3xl">

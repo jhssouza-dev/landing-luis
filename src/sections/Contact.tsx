@@ -7,7 +7,7 @@ export function Contact() {
       <div className="page-container grid gap-10 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-start">
         {/* Lado esquerdo (texto) igual já feito */}
         <div>
-          <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
+          <p className="text-lg uppercase tracking-[0.3em] text-slate-400">
             Contato
           </p>
           <h2 className="mt-2 text-2xl font-semibold md:text-3xl">
@@ -23,7 +23,7 @@ export function Contact() {
         </div>
 
         {/* Formulário integrado ao FormSubmit */}
-        <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 backdrop-blur-sm">
+        <div className="rounded-2xl border border-(--border) bg-(--bg-soft)/80 p-6 backdrop-blur-sm">
           <form
             className="space-y-4"
             // SUBSTITUI AQUI PELO ENDEREÇO GERADO PELO FORMSUBMIT
@@ -47,7 +47,7 @@ export function Contact() {
                 id="name"
                 name="name"
                 required
-                className="mt-1 w-full rounded-xl border border-slate-700 bg-slate-900/60 px-3 py-2 text-sm text-slate-100 outline-none ring-0 transition focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/60"
+                className="mt-1 w-full rounded-xl border border-(--border) bg-(--bg-soft) px-3 py-2 text-sm text-(--text) outline-none ring-0 transition focus:border-(--accent) focus:ring-1 focus:ring-(--accent)/60"
                 placeholder="Como devo te chamar?"
               />
             </div>

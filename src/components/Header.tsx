@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
+import type { SectionId } from "../hooks/useSectionObserver";
 
-type SectionId = "top" | "projetos" | "sobre" | "servicos" | "contato";
+// ✅ Header agora aceita a prop activeSection
+type HeaderProps = {
+  activeSection: SectionId;
+};
 
-export function Header() {
+export function Header({ activeSection }: HeaderProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -25,9 +29,9 @@ export function Header() {
 
   return (
     <>
-      {/* HEADER fixo, colado no topo */}
+      {/* HEADER  */}
       <header
-        className="fixed inset-x-0 top-0 z-[56] h-14 pointer-events-auto"
+        className="fixed inset-x-0 top-0 z-56 h-14 pointer-events-auto"
         onMouseEnter={() => {
           if (!isMobile) setIsHovered(true);
         }}
@@ -37,9 +41,9 @@ export function Header() {
       >
         <div
           className={
-            "flex h-full items-center justify-between px-4 md:px-8 transition-all duration-300 " +
+            "flex h-full items-center justify-between px-4 md:px-8 transition-all duration-600 " +
             (headerVisible
-              ? "bg-black/60 backdrop-blur-md opacity-100"
+              ? "bg-gray-50/80 backdrop-blur-md opacity-100"
               : "bg-transparent opacity-0")
           }
         >
@@ -48,18 +52,14 @@ export function Header() {
             onClick={() => scrollToSection("top")}
             className="flex items-center gap-2"
           >
-            {/* BOLINHA COM IMAGEM DENTRO 
-            <div className="flex h-21 w-21 items-center justify-center overflow-hidden rounded-full bg-gradient-to-tr from-cyan-400 to-emerald-300">
+            {/* IMAGEM */}
+            <div className="flex h-28 w-28 items-center justify-center ">
               <img
-                src="/logo.jpg"
+                src="/images/logo/logobranco.png"
                 alt="logo"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-contain"
               />
             </div>
-
-            <span className="text-sm font-medium text-white">
-              Luís Fernando
-            </span>*/}
           </button>
 
           {/* Botão hambúrguer */}
@@ -95,7 +95,7 @@ export function Header() {
       {/* OVERLAY FULLSCREEN DO MENU */}
       <div
         className={
-          "fixed inset-0 z-[60] bg-[#050816]/95 backdrop-blur-xl transition-opacity duration-300 " +
+          "fixed inset-0 z-60 bg-[#050816]/95 backdrop-blur-xl transition-opacity duration-300 " +
           (menuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none")
@@ -106,12 +106,16 @@ export function Header() {
           <div className="flex h-14 items-center justify-between px-4 md:px-8">
             <button
               onClick={() => scrollToSection("top")}
-              className="flex items-center gap-2"
+              className="flex items-center gap-3"
             >
-              <div className="h-7 w-7 rounded-full bg-gradient-to-tr from-cyan-400 to-emerald-300" />
-              <span className="text-sm font-medium text-white">
-                Luís Fernando
-              </span>
+              {/* LOGO DENTRO DO CONTÊINER */}
+              <div className="flex h-28 w-28 items-center justify-center ">
+                <img
+                  src="/images/logo/logobranco.png"
+                  alt="logo"
+                  className="h-full w-full object-contain"
+                />
+              </div>
             </button>
 
             <button
@@ -124,27 +128,50 @@ export function Header() {
           </div>
 
           {/* links do menu (tela cheia) */}
-          <nav className="flex flex-1 flex-col items-center justify-center gap-6 text-3xl font-medium text-slate-100 md:text-4xl">
+          <nav className="flex flex-1 flex-col items-center justify-center gap-8 text-3xl  md:text-4xl">
             <button
-              className="mb-4 text-left hover:text-cyan-400"
+              className={
+                "mb-4 text-left uppercase transition-colors " +
+                (activeSection === "projetos"
+                  ? "text-gray-400"
+                  : "text-slate-100 hover:text-gray-400")
+              }
               onClick={() => scrollToSection("projetos")}
             >
               Projetos
             </button>
+
             <button
-              className="mb-4 text-left hover:text-cyan-400"
+              className={
+                "mb-4 text-left uppercase transition-colors " +
+                (activeSection === "sobre"
+                  ? "text-gray-400"
+                  : "text-slate-100 hover:text-gray-400")
+              }
               onClick={() => scrollToSection("sobre")}
             >
               Sobre
             </button>
+
             <button
-              className="mb-4 text-left hover:text-cyan-400"
+              className={
+                "mb-4 text-left uppercase transition-colors " +
+                (activeSection === "servicos"
+                  ? "text-gray-400"
+                  : "text-slate-100 hover:text-gray-400")
+              }
               onClick={() => scrollToSection("servicos")}
             >
               Serviços
             </button>
+
             <button
-              className="mb-4 text-left hover:text-cyan-400"
+              className={
+                "mb-4 text-left uppercase transition-colors " +
+                (activeSection === "contato"
+                  ? "text-gray-400"
+                  : "text-slate-100 hover:text-gray-400")
+              }
               onClick={() => scrollToSection("contato")}
             >
               Contato

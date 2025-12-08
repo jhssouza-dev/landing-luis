@@ -1,11 +1,21 @@
 @import "tailwindcss";
 
-/* Swiper CSS (vem do node_modules, TS não se mete aqui) */
+/* Swiper CSS */
 @import "swiper/css";
 @import "swiper/css/pagination";
 @import "swiper/css/effect-fade";
 
-/* Estilos base globais */
+/* Tema dark global */
+:root {
+  --bg: #000000;
+  --bg-soft: #0b0b0f;
+  --bg-softer: #111827;
+  --border: #1f2933;
+  --text: #e5e7eb;
+  --text-soft: #9ca3af;
+  --accent: #22d3ee;
+}
+
 @layer base {
   * {
     @apply box-border;
@@ -16,13 +26,13 @@
   }
 
   body {
-    @apply m-0 bg-[#050816] text-[#F9FAFB] antialiased;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-      sans-serif;
+    @apply m-0 antialiased;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
   }
 }
 
-/* Utility extra que fizemos */
 @layer utilities {
   .page-container {
     @apply mx-auto w-full max-w-6xl px-4;

@@ -9,14 +9,16 @@ export function Services() {
     >
       <div className="page-container">
         {/* Cabeçalho da seção */}
-        <div className="mb-10 max-w-2xl">
+        <div className="mb-14 max-w-2xl">
           <p className="text-lg uppercase tracking-[0.3em] text-slate-400">
             Serviços
           </p>
-          <h2 className="mt-2 text-2xl font-semibold md:text-3xl">
+
+          <h2 className="mt-2 text-3xl md:text-5xl font-semibold leading-tight uppercase">
             Do conceito ao render final.
           </h2>
-          <p className="mt-2 text-sm text-slate-400 md:text-base">
+
+          <p className="mt-4 text-lg md:text-xl text-slate-400 leading-relaxed">
             Arquitetura, interiores e visualização 3D para apresentar projetos
             com clareza e impacto, seja para uso residencial ou comercial.
           </p>

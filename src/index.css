@@ -49,3 +49,12 @@
 .swiper-pagination-bullet-active {
   background: #000000 !important; /* COR DA BOLINHA ATIVA */
 }
+select option {
+  background-color: #0f172a; /* Slate-900 (combina com seu tema) */
+  color: #f1f5f9; /* texto claro */
+}
+
+select option:hover {
+  background-color: #1e293b !important; /* Slate-800 — leve cinza no hover */
+  color: #ffffff !important;
+}

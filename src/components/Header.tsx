@@ -95,7 +95,7 @@ export function Header({ activeSection }: HeaderProps) {
       {/* OVERLAY FULLSCREEN DO MENU */}
       <div
         className={
-          "fixed inset-0 z-60 bg-[#050816]/95 backdrop-blur-xl transition-opacity duration-300 " +
+          "fixed inset-0 z-60 bg-[#050505]/95 backdrop-blur-xl transition-opacity duration-300 " +
           (menuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none")

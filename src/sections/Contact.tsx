@@ -27,15 +27,35 @@ export function Contact() {
               href="https://wa.me/5599999999999"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-gray-300 px-4 py-2 text-sm font-medium text-gray-900 transition hover:bg-gray-400"
+              aria-label="WhatsApp"
+              className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-gray-300 text-gray-900 transition hover:bg-gray-400"
             >
-              WhatsApp
+              <svg
+                aria-hidden
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                className="h-5 w-5"
+                fill="currentColor"
+              >
+                <path d="M12.04 2a9.95 9.95 0 0 0-8.56 14.98L2 22l5.14-1.47A9.95 9.95 0 1 0 12.04 2Zm0 1.8a8.14 8.14 0 0 1 6.16 13.39.9.9 0 0 0-.2.46l-.35 2.64-2.5-.73a.9.9 0 0 0-.56.03 8.14 8.14 0 0 1-8.58-12.8A8.12 8.12 0 0 1 12.04 3.8ZM7.5 7.8c-.2 0-.4.08-.55.23-.53.53-1.02 1.39.18 3.63 1.4 2.68 3.38 3.77 4.94 4.31.76.27 1.56.1 2.04-.38.2-.2.3-.47.08-.9l-.7-1.4a.68.68 0 0 0-.78-.36l-.8.2c-.15.04-.3 0-.4-.1-.23-.2-.73-.56-1.39-1.22-.64-.64-.98-1.12-1.18-1.35-.1-.1-.14-.25-.1-.4l.2-.79a.68.68 0 0 0-.36-.78L8.1 7.9a.67.67 0 0 0-.6-.1Z" />
+              </svg>
+              <span className="sr-only">WhatsApp</span>
             </a>
             <a
               href="mailto:contato@visionofluis.com"
-              className="inline-flex items-center gap-2 rounded-full border border-slate-600 px-4 py-2 text-sm font-medium text-slate-100 transition hover:border-slate-400"
+              aria-label="E-mail"
+              className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-slate-800 text-slate-100 transition hover:bg-slate-700"
             >
-              E-mail
+              <svg
+                aria-hidden
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                className="h-5 w-5"
+                fill="currentColor"
+              >
+                <path d="M4 5h16c1.1 0 2 .9 2 2v10c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V7c0-1.1.9-2 2-2Zm0 2v.28l8 4.67 8-4.67V7H4Zm0 2.52V17h16v-7.48l-7.57 4.42a1.2 1.2 0 0 1-1.2 0L4 9.52Z" />
+              </svg>
+              <span className="sr-only">E-mail</span>
             </a>
           </div>
 

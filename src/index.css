@@ -58,3 +58,13 @@ select option:hover {
   background-color: #1e293b !important; /* Slate-800 — leve cinza no hover */
   color: #ffffff !important;
 }
+@keyframes logo-letter-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

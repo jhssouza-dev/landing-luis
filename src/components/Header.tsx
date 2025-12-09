@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { SectionId } from "../hooks/useSectionObserver";
-import { projects } from "../data/projects";
+import { projects } from "../features/components/data/projects";
 
 // Header agora aceita a prop activeSection
 type HeaderProps = {
@@ -70,7 +70,7 @@ const scrollToProject = (projectId: string) => {
           >
             <div className="flex h-28 w-28 items-center justify-center">
               <img
-                src="/images/logo/logopreto.png"
+                src="/images/logo/logopreto.svg"
                 alt="logo"
                 className="h-full w-full object-contain"
               />
@@ -124,7 +124,7 @@ const scrollToProject = (projectId: string) => {
             >
               <div className="flex h-28 w-28 items-center justify-center">
                 <img
-                  src="/images/logo/logobranco.png"
+                  src="/images/logo/logobranco.svg"
                   alt="logo"
                   className="h-full w-full object-contain"
                 />

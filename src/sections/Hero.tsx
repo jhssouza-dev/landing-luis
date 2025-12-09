@@ -1,5 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Pagination } from "swiper/modules";
+import { LogoSvg } from "../components/LogoSvg";
+
 
 const slides = [
   
@@ -52,11 +54,12 @@ export function Hero() {
 
       {/* Logo / texto central, se quiser por cima */}
        <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center">
-        <img
-          src="/images/logo/logobranco.png"
+       {/* <img
+          src="/images/logo/logobranco.svg"
           alt="logo"
           className="w-40 md:w-56 object-contain opacity-60 drop-shadow-[0_0_10px_rgba(0,0,0,0.6)]"
-        />
+        />*/}
+       <LogoSvg className="w-40 md:w-56"/>
       </div>
     </section>
   );

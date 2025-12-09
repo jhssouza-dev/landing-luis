@@ -24,17 +24,23 @@ export function useSectionObserver() {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        const visibleSections = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        const visible = entries.filter((entry) => entry.isIntersecting);
+        if (!visible.length) return;
 
-        if (visibleSections[0]) {
-          const id = visibleSections[0].target.id as SectionId;
-          setActiveSection(id);
-        }
+        // pega a que está mais "alta" dentro da área observada
+        const closestToTop = visible.reduce((prev, curr) => {
+          const prevTop = prev.boundingClientRect.top;
+          const currTop = curr.boundingClientRect.top;
+          return currTop < prevTop ? curr : prev;
+        });
+
+        const id = closestToTop.target.id as SectionId;
+        setActiveSection(id);
       },
       {
-        threshold: 0.3,
+        threshold: 0, // qualquer interseção
+        // faixa de 50% no meio da tela: quando a seção cruza essa faixa, ela vira ativa
+        rootMargin: "-50% 0px -50% 0px",
       }
     );
 

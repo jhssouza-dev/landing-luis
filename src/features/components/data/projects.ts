@@ -1,4 +1,5 @@
 export type Project = {
+  description: any;
   id: string;
   title: string;
   tag: string;
@@ -11,6 +12,7 @@ export const projects: Project[] = [
     id: "mirror-house",
     title: "THE MIRROR HOUSE",
     tag: "Arquitetura & Visualização 3D",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     images: [
       "/images/projetos/mirror/01.webp",
       "/images/projetos/mirror/02.webp",
@@ -22,6 +24,7 @@ export const projects: Project[] = [
     id: "the-cabin",
     title: "THE CABIN",
     tag: "Arquitetura & Visualização 3D",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     images: [
       "/images/projetos/cabin/01.webp",
       "/images/projetos/cabin/02.webp",
@@ -33,6 +36,7 @@ export const projects: Project[] = [
     id: "na-mata",
     title: "NA MATA",
     tag: "Arquitetura & Visualização 3D",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
      images: [
       "/images/projetos/namata/01.webp",
       "/images/projetos/namata/02.webp",
@@ -44,6 +48,7 @@ export const projects: Project[] = [
     id: "yard",
     title: "YARD HOUSE",
     tag: "Arquitetura & Visualização 3D",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
      images: [
       "/images/projetos/yard/01.webp",
       "/images/projetos/yard/02.webp",

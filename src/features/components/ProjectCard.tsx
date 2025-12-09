@@ -14,6 +14,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           project={project}
           src={src}
           index={index}
+          anchorId={index === 0 ? `project-${project.id}` : undefined}
         />
       ))}
     </>

@@ -59,7 +59,7 @@ const scrollToProject = (projectId: string) => {
           className={
             "flex h-full items-center justify-between px-4 md:px-8 transition-all duration-600 " +
             (headerVisible
-              ? "bg-gray-50/80 backdrop-blur-md opacity-100"
+              ? "bg-gray-50/80 backdrop-blur-md opacity-100 bg-amber-800 shadow-md"
               : "bg-transparent opacity-0")
           }
         >

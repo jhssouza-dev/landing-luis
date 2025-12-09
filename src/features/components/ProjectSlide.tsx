@@ -5,14 +5,16 @@ type ProjectSlideProps = {
   project: Project;
   src: string;
   index: number;
+  anchorId?: string;
 };
 
-export function ProjectSlide({ project, src, index }: ProjectSlideProps) {
+export function ProjectSlide({ project, src, index, anchorId }: ProjectSlideProps) {
   const { ref, visible } = useFadeIn();
 
   return (
     <section
       ref={ref}
+      id={anchorId}
       className={`
         w-full min-h-screen
         flex flex-col md:flex-row

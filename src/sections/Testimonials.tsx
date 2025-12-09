@@ -28,10 +28,7 @@ const testimonials: Testimonial[] = [
 
 export function Testimonials() {
   return (
-    <section
-      id="depoimentos"
-      className="sr-section border-t border-(--border) py-20 md:py-24 bg-(--bg)"
-    >
+    <section id="depoimentos" className="sr-section py-20 md:py-24 bg-(--bg)">
       <div className="page-container space-y-12">
         <div className="max-w-2xl">
           <p className="text-lg uppercase tracking-[0.3em] text-(--text-soft)">
@@ -43,7 +40,8 @@ export function Testimonials() {
           </h2>
 
           <p className="mt-4 text-lg md:text-xl text-(--text-soft) leading-relaxed">
-            Uma rede de escritórios, construtoras e incorporadoras que confiam no processo — da primeira prévia ao render final.
+            Uma rede de escritórios, construtoras e incorporadoras que confiam
+            no processo — da primeira prévia ao render final.
           </p>
         </div>
 
@@ -58,9 +56,7 @@ export function Testimonials() {
               </blockquote>
 
               <figcaption className="mt-8">
-                <p className="text-xl font-medium text-(--text)">
-                  {item.name}
-                </p>
+                <p className="text-xl font-medium text-(--text)">{item.name}</p>
                 <p className="mt-1 text-base uppercase tracking-[0.16em] text-(--text-soft)">
                   {item.role}
                 </p>

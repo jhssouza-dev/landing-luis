@@ -2,7 +2,7 @@ export function About() {
   return (
     <section
       id="sobre"
-      className="sr-section border-t border-(--border) py-20 md:py-24 bg-(--bg)"
+      className="sr-section  py-20 md:py-24 bg-(--bg)"
     >
       <div className="page-container grid gap-12 md:grid-cols-2 md:items-center">
         {/* FOTO */}

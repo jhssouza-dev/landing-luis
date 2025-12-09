@@ -1,12 +1,9 @@
-import { services } from '../data/services'
-import { ServiceCard } from '../components/ServiceCard'
+import { services } from "../data/services";
+import { ServiceCard } from "../components/ServiceCard";
 
 export function Services() {
   return (
-    <section
-      id="servicos"
-      className="sr-section border-t border-white/5 py-16"
-    >
+    <section id="servicos" className="sr-section  py-16">
       <div className="page-container">
         {/* Cabeçalho da seção */}
         <div className="mb-14 max-w-2xl">
@@ -32,5 +29,5 @@ export function Services() {
         </div>
       </div>
     </section>
-  )
+  );
 }

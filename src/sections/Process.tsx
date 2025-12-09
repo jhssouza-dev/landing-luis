@@ -2,9 +2,28 @@ export function Process() {
   return (
     <section
       id="processo"
-      className="sr-section border-t border-(--border) py-20 md:py-24 bg-(--bg)"
+      className="
+    relative
+    sr-section
+    min-h-screen
+    py-20 md:py-24
+    px-6 md:px-10 lg:px-20
+    bg-[url('/bg05.webp')]
+    bg-cover bg-no-repeat
+    bg-right
+    flex items-center justify-end
+  "
     >
-      <div className="page-container space-y-12">
+      {/* CONTEÚDO — SOMENTE METADE DA TELA */}
+      <div
+        className="
+          relative z-20
+          w-full md:w-1/2
+          space-y-16
+          
+          
+        "
+      >
         {/* Cabeçalho */}
         <div>
           <p className="text-lg uppercase tracking-[0.3em] text-(--text-soft)">
@@ -15,7 +34,7 @@ export function Process() {
             Do conceito ao render final.
           </h2>
 
-          <p className="mt-4 max-w-2xl text-lg md:text-xl text-(--text-soft) leading-relaxed">
+          <p className="mt-4 text-lg md:text-xl text-(--text-soft) leading-relaxed">
             Cada projeto é conduzido como uma narrativa visual: partimos do
             contexto, alinhamos expectativas e transformamos ideias em imagens
             que comunicam espaço, luz e materialidade com precisão.
@@ -23,7 +42,7 @@ export function Process() {
         </div>
 
         {/* Etapas */}
-        <div className="grid gap-10 md:grid-cols-3">
+        <div className="grid gap-10 md:grid-cols-1 lg:grid-cols-1">
           {/* Etapa 1 */}
           <div className="space-y-4">
             <p className="text-base md:text-lg uppercase tracking-[0.25em] text-(--text-soft)">

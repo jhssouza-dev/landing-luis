@@ -3,7 +3,7 @@ import { ProjectCard } from "../features/components/ProjectCard";
 
 export function Highlights() {
   return (
-    <section id="projetos" className="border-t border-white/5 py-16">
+    <section id="projetos" className=" py-16">
       {/* Cabeçalho */}
       <div className="page-container">
         <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
@@ -15,10 +15,13 @@ export function Highlights() {
 
       {/* TODOS OS PROJETOS, CADA IMAGEM = TELA INTEIRA */}
       <div className="flex flex-col">
+        
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
+         <div className="pointer-events-none absolute inset-0 bg-black/20" />
       </div>
+      
     </section>
   );
 }

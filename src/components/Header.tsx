@@ -11,6 +11,7 @@ export function Header({ activeSection }: HeaderProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [showByScroll, setShowByScroll] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -18,8 +19,19 @@ export function Header({ activeSection }: HeaderProps) {
     }
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const halfScreen = window.innerHeight * 0.5;
+      setShowByScroll(window.scrollY >= halfScreen);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   // Header aparece quando:
-  const headerVisible = isMobile || isHovered || menuOpen;
+  const headerVisible = isMobile || isHovered || menuOpen || showByScroll;
 
   const scrollToSection = (id: SectionId) => {
   const el = document.getElementById(id);

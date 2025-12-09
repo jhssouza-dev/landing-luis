@@ -21,6 +21,24 @@ export function Contact() {
             passos.
           </p>
 
+          {/* Botões rápidos */}
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a
+              href="https://wa.me/5599999999999"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-gray-300 px-4 py-2 text-sm font-medium text-gray-900 transition hover:bg-gray-400"
+            >
+              WhatsApp
+            </a>
+            <a
+              href="mailto:contato@visionofluis.com"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-600 px-4 py-2 text-sm font-medium text-slate-100 transition hover:border-slate-400"
+            >
+              E-mail
+            </a>
+          </div>
+
           {/* ... resto do texto e botões WhatsApp / e-mail / Behance iguaizinhos ... */}
         </div>
 
@@ -96,6 +114,30 @@ export function Contact() {
 
             <div>
               <label
+                htmlFor="budget"
+                className="text-sm md:text-base font-medium uppercase tracking-[0.18em] text-slate-400"
+              >
+                Faixa de orçamento
+              </label>
+              <select
+                id="budget"
+                name="budget"
+                className="mt-1 w-full rounded-xl border border-slate-700 bg-slate-900/60 px-3 py-2 text-base text-slate-100 outline-none ring-0 transition focus:border-gray-400 focus:ring-1 focus:ring-gray-400/60"
+                defaultValue=""
+              >
+                <option value="" disabled>
+                  Selecione uma opção
+                </option>
+                <option value="a-definir">A definir</option>
+                <option value="ate-5k">Até R$ 5 mil</option>
+                <option value="5-10k">R$ 5k – 10k</option>
+                <option value="10-20k">R$ 10k – 20k</option>
+                <option value="20k-plus">Acima de R$ 20k</option>
+              </select>
+            </div>
+
+            <div>
+              <label
                 htmlFor="message"
                 className="text-sm md:text-base font-medium uppercase tracking-[0.18em] text-slate-400"
               >
@@ -121,6 +163,10 @@ export function Contact() {
             <p className="mt-2 text-xs md:text-sm text-slate-500">
               Ao enviar, você concorda em ser contatado(a) por e-mail ou
               WhatsApp para continuidade do projeto.
+            </p>
+            <p className="text-xs text-slate-500">
+              Seus dados são usados somente para retorno comercial. Não
+              compartilhamos com terceiros.
             </p>
           </form>
         </div>

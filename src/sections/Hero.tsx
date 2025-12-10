@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Pagination } from "swiper/modules";
-import { LogoSvg } from "../components/LogoSvg";
+import { LogoLazy } from "../components/LogoLazy";
 
 
 const slides = [
@@ -59,7 +59,7 @@ export function Hero() {
           alt="logo"
           className="w-40 md:w-56 object-contain opacity-60 drop-shadow-[0_0_10px_rgba(0,0,0,0.6)]"
         />*/}
-       <LogoSvg className="w-40 md:w-56"/>
+       <LogoLazy className="w-40 md:w-56" />
       </div>
     </section>
   );

@@ -1,22 +1,22 @@
-import type { Project } from "./data/projects";
+// src/features/components/ProjectCard.tsx
 import { ProjectSlide } from "./ProjectSlide";
+import type { Project } from "./data/projects";
 
-type ProjectCardProps = {
+type Props = {
   project: Project;
 };
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project }: Props) {
   return (
-    <>
-      {project.images.map((src, index) => (
+    <div className="w-full">
+      {/* Apenas UMA imagem no destaque */}
+      {project.images.length > 0 && (
         <ProjectSlide
-          key={index}
           project={project}
-          src={src}
-          index={index}
-          anchorId={index === 0 ? `project-${project.id}` : undefined}
+          src={project.images[0]}
+          index={0}
         />
-      ))}
-    </>
+      )}
+    </div>
   );
 }

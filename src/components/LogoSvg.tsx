@@ -1,7 +1,7 @@
 import { type SVGProps } from "react";
 import { motion } from "motion/react";
-const AFTER_V_DELAY = 1.3; // quanto tempo depois do V começa a escrever o nome
-const LETTER_DELAY = 0.05  ; // atraso entre cada “letra” (cada path)
+const AFTER_V_DELAY = 1.5; // quanto tempo depois do V começa a escrever o nome
+const LETTER_DELAY = 0.10  ; // atraso entre cada “letra” (cada path)
 const V_ANIMATION_DURATION = 1; // segundos (use isso também nos delays dos textos)
 
 export const LogoSvg = ({ className, ...rest }: SVGProps<SVGSVGElement>) => (

@@ -4,7 +4,7 @@ const LogoSvg = lazy(() => import("./LogoSvg"));
 
 // tempo total de um ciclo (animação + pausa) em ms
 // pode ajustar esse valor se sua animação for mais longa
-const LOOP_INTERVAL_MS = 6000; // 3 segundos
+const LOOP_INTERVAL_MS = 7000; // 3 segundos
 
 export function LogoLazy(props: React.SVGProps<SVGSVGElement>) {
   const [key, setKey] = useState(0);

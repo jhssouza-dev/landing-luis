@@ -320,11 +320,14 @@ export function Contact() {
               type="submit"
               disabled={status === "loading"}
               className="
-                mt-4 inline-block px-1 py-3 
-                transition rounded-full cursor-pointer
+                mt-4 inline-block 
+                border border-slate-500/40
+                transition rounded-lg cursor-pointer
+                 px-4 py-2
+                 bg-neutral-900
                 hover:text-gray-400
                 disabled:opacity-60 disabled:cursor-not-allowed
-                font-bold uppercase
+                font-bold uppercase 
               "
             >
               {status === "loading" ? "Loading..." : "Send"}

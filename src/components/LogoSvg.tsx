@@ -243,3 +243,4 @@ export const LogoSvg = ({ className, ...rest }: SVGProps<SVGSVGElement>) => (
     </g>
   </svg>
 );
+export default LogoSvg;

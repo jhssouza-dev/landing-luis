@@ -13,7 +13,7 @@ export function Highlights() {
         </div>
       </div>
 
-      {/* TODOS OS PROJETOS, CADA IMAGEM = TELA INTEIRA */}
+      
       <div className="flex flex-col">
         
         {projects.map((project) => (

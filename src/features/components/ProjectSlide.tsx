@@ -1,5 +1,7 @@
+// src/features/components/ProjectSlide.tsx
 import type { Project } from "./data/projects";
 import { useFadeIn } from "../../hooks/useFadeIn";
+import { Link } from "react-router-dom"; //
 
 type ProjectSlideProps = {
   project: Project;
@@ -8,7 +10,12 @@ type ProjectSlideProps = {
   anchorId?: string;
 };
 
-export function ProjectSlide({ project, src, index, anchorId }: ProjectSlideProps) {
+export function ProjectSlide({
+  project,
+  src,
+  index,
+  anchorId,
+}: ProjectSlideProps) {
   const { ref, visible } = useFadeIn();
 
   return (
@@ -20,17 +27,15 @@ export function ProjectSlide({ project, src, index, anchorId }: ProjectSlideProp
         flex flex-col md:flex-row
         items-center
         px-6 md:px-16 lg:px-24
-        py-16
+        pt-16 pb-0
         gap-10 md:gap-20
         transition-all duration-700 ease-out
         ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
       `}
     >
       {/* COLUNA ESQUERDA – IMAGEM (CLIQUE LEVA PRO BEHANCE) */}
-      <a
-        href={project.behanceUrl}
-        target="_blank"
-        rel="noreferrer"
+      <Link
+        to={`/projetos/${project.id}`}
         className="block w-full md:w-1/2 h-[50vh] md:h-[80vh] overflow-hidden"
       >
         <img
@@ -38,7 +43,7 @@ export function ProjectSlide({ project, src, index, anchorId }: ProjectSlideProp
           alt={`${project.title} - imagem ${index + 1}`}
           className="w-full h-full object-cover object-center"
         />
-      </a>
+      </Link>
 
       {/* COLUNA DIREITA – TEXTO */}
       <div className="w-full md:w-1/2 flex flex-col justify-center text-left">
@@ -55,6 +60,18 @@ export function ProjectSlide({ project, src, index, anchorId }: ProjectSlideProp
             {project.description}
           </p>
         )}
+        <Link
+          to={`/projetos/${project.id}`}
+          className="
+      mt-6 inline-block
+      text-xs md:text-sm uppercase tracking-[0.25em]
+      text-gray-200
+      hover:text-gray-400
+      font-semibold
+    "
+        >
+          Ver projeto
+        </Link>
       </div>
     </section>
   );

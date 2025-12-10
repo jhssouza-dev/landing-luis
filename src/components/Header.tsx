@@ -28,7 +28,7 @@ export function Header({ activeSection }: HeaderProps) {
     <button
       onClick={() => setMenuOpen(!menuOpen)}
       aria-label="Menu"
-      className="relative w-8 h-8 flex items-center justify-center"
+      className="relative w-8 h-8 flex items-center justify-center cursor-pointer"
     >
       {/* Linha 1 */}
       <span
@@ -69,9 +69,9 @@ export function Header({ activeSection }: HeaderProps) {
         <div className="pointer-events-auto flex h-full items-center justify-between px-4 sm:px-6 md:px-10">
           {/* LOGO */}
           <button onClick={() => scrollToSection("top")}>
-            <div className="flex h-32 w-32 items-center justify-center">
+            <div className="flex h-16 w-16 items-center justify-center cursor-pointer">
               <img
-                src="/images/logo/logobranco.svg"
+                src="/images/logo/logoheaderbranco.svg"
                 className="h-full w-full object-contain"
                 alt=""
               />
@@ -97,9 +97,9 @@ export function Header({ activeSection }: HeaderProps) {
           <div className="fixed inset-x-0 top-2 md:top-4 lg:top-6 h-14 z-60 flex items-center justify-between px-4 sm:px-6 md:px-10">
             {/* LOGO */}
             <button onClick={() => scrollToSection("top")}>
-              <div className="flex h-32 w-32 items-center justify-center">
+              <div className="flex h-16 w-16 items-center justify-center cursor-pointer">
                 <img
-                  src="/images/logo/logobranco.svg"
+                  src="images/logo/logoheaderbranco.svg"
                   className="h-full w-full object-contain"
                   alt=""
                 />
@@ -115,7 +115,7 @@ export function Header({ activeSection }: HeaderProps) {
             {/* PROJETOS */}
             <div className="flex flex-col items-center gap-3">
               <button
-                className={`uppercase transition-colors ${
+                className={`uppercase transition-colors cursor-pointer ${
                   activeSection === "projetos"
                     ? "text-gray-400"
                     : "text-slate-100 hover:text-gray-400"
@@ -130,7 +130,7 @@ export function Header({ activeSection }: HeaderProps) {
                   <button
                     key={project.id}
                     onClick={() => scrollToProject(project.id)}
-                    className="uppercase tracking-[0.18em] hover:text-gray-200 transition-colors"
+                    className="uppercase tracking-[0.18em] hover:text-gray-200 transition-colors cursor-pointer"
                   >
                     {project.title}
                   </button>
@@ -143,7 +143,7 @@ export function Header({ activeSection }: HeaderProps) {
               (id) => (
                 <button
                   key={id}
-                  className={`uppercase transition-colors ${
+                  className={`uppercase transition-colors cursor-pointer ${
                     activeSection === id
                       ? "text-gray-400"
                       : "text-slate-100 hover:text-gray-400"

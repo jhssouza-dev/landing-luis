@@ -59,7 +59,7 @@ export function Hero() {
           alt="logo"
           className="w-40 md:w-56 object-contain opacity-60 drop-shadow-[0_0_10px_rgba(0,0,0,0.6)]"
         />*/}
-       <LogoLazy className="w-40 md:w-56" />
+       <LogoLazy className="w-100 md:w-132" />
       </div>
     </section>
   );

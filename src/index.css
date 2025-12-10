@@ -47,7 +47,7 @@
 
 /* Cor da bolinha ativa */
 .swiper-pagination-bullet-active {
-  background: #000000 !important; /* COR DA BOLINHA ATIVA */
+  background: #c2c2c3 !important; /* COR DA BOLINHA ATIVA */
 }
 select option {
   background-color: #0f172a; /* Slate-900 (combina com seu tema) */

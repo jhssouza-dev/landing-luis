@@ -1,0 +1,281 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0e1013;
+  --surface: #13161a;
+  --surface-muted: #1b1f24;
+  --foreground: #f6f3ec;
+  --muted: #9b968d;
+  --line: rgba(246, 243, 236, 0.12);
+  --accent: #d5c3a0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-inter-tight), "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-serif: var(--font-display);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--background);
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+}
+
+body::selection {
+  background: var(--accent);
+  color: #0e1013;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.site-shell {
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+.container-wide {
+  width: min(100% - 2rem, 1500px);
+  margin-inline: auto;
+}
+
+.container {
+  width: min(100% - 2rem, 1180px);
+  margin-inline: auto;
+}
+
+.section-y {
+  padding-block: clamp(5rem, 9vw, 10rem);
+}
+
+.section-scene {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: clip;
+  padding-block: clamp(5rem, 8vw, 8rem);
+}
+
+.scene-grid {
+  display: grid;
+  gap: clamp(2rem, 5vw, 5rem);
+  width: 100%;
+}
+
+.eyebrow {
+  color: var(--muted);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.display-serif {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.display-type {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.image-frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-muted);
+}
+
+.muted-line {
+  border-color: var(--line);
+}
+
+.intro-logo {
+  opacity: 1;
+  visibility: visible;
+}
+
+.intro-logo__lockup {
+  max-width: 78vw;
+  width: clamp(260px, 34vw, 540px);
+  will-change: transform, opacity, filter;
+}
+
+.intro-logo__image {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.hero-hamburger {
+  align-items: center;
+  display: flex;
+  height: 2.5rem;
+  justify-content: center;
+  position: fixed;
+  right: clamp(24px, 4vw, 56px);
+  top: clamp(24px, 4vw, 48px);
+  width: 2.5rem;
+  z-index: 30;
+}
+
+@media (max-width: 767px) {
+  .intro-logo__lockup {
+    width: 72vw;
+  }
+}
+
+.hero-hamburger span {
+  background: rgba(246, 243, 236, 0.86);
+  height: 1px;
+  position: absolute;
+  width: 1.5rem;
+}
+
+.hero-hamburger span:first-child {
+  transform: translateY(-0.32rem);
+}
+
+.hero-hamburger span:last-child {
+  transform: translateY(0.32rem);
+}
+
+.animated-logo {
+  filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.48));
+  isolation: isolate;
+}
+
+.animated-logo__base,
+.animated-logo__reveal,
+.animated-logo__shine {
+  position: absolute;
+  inset: 0;
+  background-color: var(--foreground);
+  mask-image: url("/images/logo/logobranco.svg");
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-image: url("/images/logo/logobranco.svg");
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+}
+
+.animated-logo__base {
+  opacity: 0.14;
+}
+
+.animated-logo__reveal {
+  animation: logo-reveal 5.8s cubic-bezier(0.76, 0, 0.24, 1) infinite;
+  clip-path: inset(0 100% 0 0);
+  opacity: 0.86;
+}
+
+.animated-logo__shine {
+  animation: logo-shine 5.8s ease-in-out infinite;
+  background:
+    linear-gradient(
+      105deg,
+      transparent 0%,
+      transparent 40%,
+      rgba(255, 255, 255, 0.96) 50%,
+      transparent 62%,
+      transparent 100%
+    );
+  mix-blend-mode: screen;
+  opacity: 0;
+  transform: translateX(-38%);
+}
+
+@keyframes logo-reveal {
+  0%,
+  10% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+  }
+  26% {
+    opacity: 0.88;
+  }
+  48%,
+  78% {
+    clip-path: inset(0 0 0 0);
+    opacity: 0.88;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 0.18;
+  }
+}
+
+@keyframes logo-shine {
+  0%,
+  45% {
+    opacity: 0;
+    transform: translateX(-42%);
+  }
+  58% {
+    opacity: 0.34;
+  }
+  72%,
+  100% {
+    opacity: 0;
+    transform: translateX(42%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animated-logo__reveal {
+    clip-path: inset(0 0 0 0);
+    opacity: 0.82;
+  }
+
+  .intro-logo {
+    display: none !important;
+  }
+}
